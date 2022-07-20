@@ -259,7 +259,14 @@ export default class Sitemapper {
         if (this.debug) {
           console.debug(`Urlset found during "crawl('${url}')"`);
         }
-        const sites = data.urlset.url.map(site => site.loc && site.loc[0]);
+        const sites = data.urlset.url.map(site => {
+          if(!site.loc) return null;
+          const res = {};
+          if(site.loc) res.url = site.loc[0];
+          if(site.changefreq) res.changefreq = site.changefreq[0];
+          if(site.lastmod) res.lastmod = site.lastmod[0];
+          return res;
+        });
         return {
           sites,
           errors: []
@@ -271,7 +278,14 @@ export default class Sitemapper {
           console.debug(`Additional sitemap found during "crawl('${url}')"`);
         }
         // Map each child url into a promise to create an array of promises
-        const sitemap = data.sitemapindex.sitemap.map(map => map.loc && map.loc[0]);
+        const sitemap = data.sitemapindex.sitemap.map(map => {
+            if(!map.loc) return null;
+            const res = {};
+            res.url = map.loc[0];
+            if(map.changefreq) res.changefreq = map.changefreq[0];
+            if(map.lastmod) res.lastmod = map.lastmod[0];
+            return res;
+        });
 
         // Parse all child urls within the concurrency limit in the settings
         const limit = pLimit(this.concurrency);
