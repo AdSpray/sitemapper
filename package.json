@@ -1,5 +1,5 @@
 {
-  "name": "sitemapper",
+  "name": "@adabra/sitemapper",
   "version": "3.2.3",
   "description": "Parser for XML Sitemaps to be used with Robots.txt and web crawlers",
   "keywords": [
@@ -11,11 +11,7 @@
     "crawlers",
     "webcrawler"
   ],
-  "homepage": "http://github.com/seantomburke/sitemapper",
   "tonicExampleFilename": "example.js",
-  "bugs": {
-    "url": "http://github.com/seantomburke/sitemapper/issues"
-  },
   "license": "MIT",
   "files": [
     "lib",
@@ -23,10 +19,6 @@
   ],
   "main": "./lib/assets/sitemapper.js",
   "types": "./sitemapper.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/seantomburke/sitemapper.git"
-  },
   "author": {
     "name": "Sean Thomas Burke",
     "email": "seantomburke@users.noreply.github.com",
