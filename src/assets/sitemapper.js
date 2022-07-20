@@ -262,7 +262,7 @@ export default class Sitemapper {
         const sites = data.urlset.url.map(site => {
           if(!site.loc) return null;
           const res = {};
-          if(site.loc) res.url = site.loc[0];
+          res.url = site.loc[0];
           if(site.changefreq) res.changefreq = site.changefreq[0];
           if(site.lastmod) res.lastmod = site.lastmod[0];
           return res;
